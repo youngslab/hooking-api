@@ -4,6 +4,23 @@
 #include <functional>
 #include <dlfcn.h>
 
+#define xstr(a) str(a)
+#define str(a) #a
+#define apply(f, args...) reinterpret_cast<typeof(x)*>(dlsym(RTLD_NEXT, str(x)))(args...)
+
+
+template<typename T, typename... Args>
+auto log(std::string const&api, Args... args){
+▒░// log with time.. process
+}
+
+extern "C" EGLBoolean eglSwapBuffers(EGLDisplay display, EGLSurface surface) {
+▒░// can i return ?
+  return apply(eglSwapBuffers, display, surface);
+}
+
+
+
 std::string version() {
 	using signiture = std::string();
 
