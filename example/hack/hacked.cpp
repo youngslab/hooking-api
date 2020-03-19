@@ -3,6 +3,8 @@
 #include <iostream>
 #include <hook/hook.hpp>
 
+std::string xxx(){}
+
 std::string version() {
   // sstatic auto f = hook::load<typeof(version)*>("version");
   static auto f = hook_load(version);
