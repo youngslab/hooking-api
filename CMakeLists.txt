@@ -9,6 +9,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(CMAKE_BUILD_TYPE Debug)
 
-# add_subdirectory(thirdparty)
 add_subdirectory(hook)
-add_subdirectory(example)
+
+if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
+  add_subdirectory(example)
+endif()
